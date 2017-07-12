@@ -1,0 +1,3 @@
+<?php
+
+AntSupvisor::Object()->deBug();
