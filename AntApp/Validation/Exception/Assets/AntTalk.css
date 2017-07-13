@@ -1,0 +1,62 @@
+body {
+  background-color: #CF000F;
+  font-family: 'PT Sans';
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+img {
+  height: 350px;
+  width: 350px;
+}
+
+em {
+  font-size: 15px;
+}
+
+.Image{
+  float: left;
+  margin: 5%;
+}
+
+.Error {
+  position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#Main {
+
+  width: 80%;
+    height: 80%;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    color: #F7CA18;
+
+}
+
+#Terminal {
+  background-color: #141414;
+  position: absolute;
+  top: 100%;
+  font-size: 15px;
+  color: #ecf0f1;
+  padding: 5%;
+  margin: 5%;
+  width: 80%;
+  border-radius: 25px;
+}
+
+#Terminal span {
+  font-weight: bold;
+  color: #26A65B;
+}

@@ -8,6 +8,7 @@
   use Validation\AntTalk as AntTalk;
   Use \Exception as Exception;
 
+
   interface IException {
     /* Protected methods inherited from Exception class */
     public function getMessage();                 // Exception message
@@ -29,21 +30,30 @@
     protected $code = 0;                          // User-defined exception code
     protected $file;                              // Source filename of exception
     protected $line;                              // Source line of exception
-    private   $trace;                             // Unknown
+    private   $trace;
+    private $previous;
 
-    public function __construct($message = null, $code = 0) {
+    public function __construct($message = null, $code = 0, $previous = null) {
       if (!$message) {
         throw new $this('Unknown '. get_class($this));
       }
       parent::__construct($message, $code);
+      $this->previous = $previous;
     }
 
     public function __toString() {
-      return get_class($this) . " '{$this->message}' in {$this->file}({$this->line})\n"                              . "{$this->getTraceAsString()}";
+      $Trace = str_replace("#", "<br><br>#", $this->getTraceAsString());
+      return get_class($this) . "<span> says:</span><br><br>
+        <span>Message: </span>'{$this->message}'<br><br>
+        <span>In: </span>{$this->file} <span>Line:</span> {$this->line}) <br><br>
+        <span>With </span> {$this->previous}<br><br>
+        <span>Stack Code: </span>{$Trace}";
     }
 
     public function showPage() {
-      echo "('{$this->getMessage()}')\n{$this}\n";
+      setcookie("ErrorMensage", $this->getMessage(), 0, '/AntBack/AntApp/Validation/Exception/Assets');
+      setcookie("LogErrorMensage", $this, 0, '/AntBack/AntApp/Validation/Exception/Assets');
+      header('Location:  /AntBack/AntApp/Validation/Exception/Assets/AntTalk.php');
     }
 
   }
