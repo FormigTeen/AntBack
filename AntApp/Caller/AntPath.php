@@ -1,3 +1,4 @@
 <?php
 
-AntSupvisor::Object()->deBug();
+require_once( __DIR__ . '/AntSign.php');
+new AntConfig();
