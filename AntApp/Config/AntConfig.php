@@ -19,7 +19,7 @@
 
       try {
         if ( !( self::ObjectAntSupvisor()->FileIsOpen( self::File ) ) ) {
-          throw new AntTalk("Arquivo não Encontrado ou Leitura Negada!");
+          throw new AntTalk("Leitura Negada ou Arquivo Inexistente!");
         }
         $this->Config = parse_ini_file( self::File );
       } catch ( AntTalk $Erro ) {
