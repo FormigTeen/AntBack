@@ -8,7 +8,7 @@
 
   class AntConfig {
 
-    const File = __DIR__ . '/.AntConfig.cfgi';
+    const File = __DIR__ . '/.AntConfig.cfg';
     private $Config;
 
     public function __construct() {
