@@ -11,13 +11,14 @@
       			<div class="Image"><img src="AntError.svg" alt="Ant"></div>      			<div class ="Error">
       				<h1>Ant Error!</h1>
       				<p>Erro Detectado por favor, verifique o seu código!</br></br>
-      					<em><?= $_COOKIE['ErrorMensage']?></em></p>
+      					<em><?= $_COOKIE['ErrorMensage'] ?? "Alarme Falso."?></em></p>
       			</div>
 
       		</div>
       		<code id="Terminal">
-      			<p><?= $_COOKIE['LogErrorMensage']?></p>
+      			<p><?= $_COOKIE['LogErrorMensage'] ?? "Desculpa, erro interno!"?></p>
       		</code>
 
       	</body>
       </html>
+<?php die(); ?>

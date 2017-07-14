@@ -2,9 +2,11 @@
 
   namespace Validation;
 
+  use Config\AntConfig as AntConfig;
   use Validation\AntSupvisor as AntSupvisor;
-  use Validation\AntTalk as AntTalk;
+  use Validation\Exception\AntTalk as AntTalk;
 
+  require_once( __DIR__ . '/../Config/AntConfig.php');
   require_once( __DIR__ . '/Exception/AntTalk.php');
 
   /*
@@ -12,8 +14,10 @@
    */
 
   require_once( __DIR__ . '/Type/File.php');
+  require_once( __DIR__ . '/Type/Str.php');
 
-  use Validation\Type\File as AntValFile;
+  use Validation\Type\File as File;
+  use Validation\Type\Str as Str;
 
   class AntSupvisor {
 
@@ -27,9 +31,14 @@
       return new AntTalk( $msg, $code );
     }
 
-    private static function File() {
-      return new AntValFile();
+    public static function File() {
+      return new File();
     }
+
+    public static function Str() {
+      return new Str();
+    }
+
 
     /*
      * Cria um Objeto Anônimo para Utilizar Métodos não estáticos
@@ -43,8 +52,9 @@
      * Cria Funções Especializada para File
      */
 
-    public function FileIsOpen ( string $location ) {
-      return self::File()->isRead($location);
-    }
-
   }
+
+  set_exception_handler(function ($Error) {
+    $Erro = new AntTalk(get_class($Error) . " finds: " . $Error->getMessage(), 0, $Error);
+    $Erro->showPage();
+  });
