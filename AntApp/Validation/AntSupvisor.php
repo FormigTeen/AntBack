@@ -5,6 +5,7 @@
   use Validation\AntSupvisor as AntSupvisor;
   use Validation\AntTalk as AntTalk;
 
+  require_once( __DIR__ . '/../Config/AntConfig.php');
   require_once( __DIR__ . '/Exception/AntTalk.php');
 
   /*

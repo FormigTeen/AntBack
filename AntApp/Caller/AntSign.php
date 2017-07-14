@@ -4,7 +4,6 @@
    * Lista dos Requires do Caller
    */
 
-  require_once( __DIR__ . '/../Validation/Exception/AntTalk.php');
   require_once( __DIR__ . '/../Validation/AntSupvisor.php');
   require_once( __DIR__ . '/../Config/AntConfig.php');
 

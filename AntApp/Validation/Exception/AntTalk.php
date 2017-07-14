@@ -37,29 +37,49 @@
       if (!$message) {
         throw new $this('Unknown '. get_class($this));
       }
-      parent::__construct($message, $code);
       $this->previous = $previous;
+      parent::__construct($message, $code);
+    }
+
+    private function pageTrace() {
+      $Trace = str_replace("#", "<br><br>#", htmlentities($this->getTraceAsString()));
+      return "<span>Stack Code: </span>" . $Trace;
+    }
+
+    private function pagePrevious() {
+      $Previous = str_replace("#", "<br><br>#", htmlentities($this->previous));
+      $Previous = str_replace("Stack trace:", "<br><br>Stack trace:", $Previous);
+      return "<span>With </span> " . $Previous . "<br><br>";
+    }
+
+    private function pageFileLine() {
+      return "<span>In: </span>" . htmlentities($this->file) . "<span> Line: </span>" . htmlentities($this->line) . "<br><br>";
+    }
+
+    private function pageMessage() {
+      return "<span>Message: </span>'" . htmlentities($this->message) . "'<br><br>";
+    }
+
+    private function sayPage() {
+      return get_class($this) . "<span> says:</span><br><br>" .
+      $this->pageMessage() . $this->pageFileLine() . $this->pagePrevious() . $this->pageTrace();
     }
 
     public function __toString() {
-      $Trace = str_replace("#", "<br><br>#", $this->getTraceAsString());
-      $Previous = str_replace("#", "<br><br>#", $this->previous);
-      $Previous = str_replace("Stack trace:", "<br><br>Stack trace:", $Previous);
-      return get_class($this) . "<span> says:</span><br><br>
-        <span>Message: </span>'{$this->message}'<br><br>
-        <span>In: </span>{$this->file} <span>Line:</span> {$this->line}) <br><br>
-        <span>With </span> " . $Previous . "<br><br>
-        <span>Stack Code: </span>{$Trace}";
+      $String = str_replace("<br>", "\n", $this->sayPage());
+      $String = strip_tags($String);
+      $String = html_entity_decode($String);
+      return $String;
     }
 
     private function setLog() {
-      error_log("Message Direct: " . $this->getMessage() . "\n\n" . strip_tags($this));die;
+      error_log("Message Direct\n: " . $this, 3); // Inserir a Configuração do Log de Erros
     }
 
     public function showPage() {
       // $this->setLog();
       setcookie("ErrorMensage", $this->getMessage(), 0, '/');
-      setcookie("LogErrorMensage", $this, 0, '/');
+      setcookie("LogErrorMensage", $this->sayPage(), 0, '/');
       header('Location:  /AntBack/AntApp/Validation/Exception/Assets/AntTalk.php');
     }
 
