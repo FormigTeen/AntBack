@@ -18,13 +18,13 @@
     //Todos os Dados do Arquivo de Configuração
     public $Config;
 
-    public function __construct() {
+    final public function __construct() {
       //Carrega as Configurações
       $this->setConfiguration();
     }
 
     //Lê o Arquivo de Configuração do Ant e carrega no AntConfig
-    private function  setConfiguration() {
+    final private function  setConfiguration() {
 
       try {
         if ( !( AntSupvisor::File()->isRead( self::File ) ) ) {
@@ -37,7 +37,7 @@
     }
 
     //Cria um Objeto Anonimo para AntConfig
-     public static function Object() {
+     final public static function Object() {
        return new AntConfig();
      }
 

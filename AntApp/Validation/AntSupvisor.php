@@ -28,18 +28,18 @@
     //LIsta de Ligaçãoes com Especialidades
 
     //Liga com a Especialidade File
-    public static function File() {
+    final public static function File() {
       return new File();
     }
 
     //Liga com a Especialidade Str ( String )
-    public static function Str() {
+    final public static function Str() {
       return new Str();
     }
 
 
     //Cria um Objeto Anônimo para Utilizar Métodos não estáticos
-    public static function Object() {
+    final public static function Object() {
       return new AntSupvisor();
     }
 

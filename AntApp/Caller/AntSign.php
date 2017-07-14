@@ -15,9 +15,9 @@
   //Lista das Assinaturas dos Callers
 
   if ( AntConfigSign::Object()->GetsignAnt() ) {
-    class AntTalk extends AntTalkSign {}
-    class AntSupvisor extends AntSupvisorSign{}
-    class AntConfig extends AntConfigSign{}
+    final class AntTalk extends AntTalkSign {}
+    final class AntSupvisor extends AntSupvisorSign{}
+    final class AntConfig extends AntConfigSign{}
   }
 
   //Pronto, Vamos para o Caminho do Formigueiro!
