@@ -43,16 +43,23 @@
 
     public function __toString() {
       $Trace = str_replace("#", "<br><br>#", $this->getTraceAsString());
+      $Previous = str_replace("#", "<br><br>#", $this->previous);
+      $Previous = str_replace("Stack trace:", "<br><br>Stack trace:", $Previous);
       return get_class($this) . "<span> says:</span><br><br>
         <span>Message: </span>'{$this->message}'<br><br>
         <span>In: </span>{$this->file} <span>Line:</span> {$this->line}) <br><br>
-        <span>With </span> {$this->previous}<br><br>
+        <span>With </span> " . $Previous . "<br><br>
         <span>Stack Code: </span>{$Trace}";
     }
 
+    private function setLog() {
+      error_log("Message Direct: " . $this->getMessage() . "\n\n" . strip_tags($this));die;
+    }
+
     public function showPage() {
-      setcookie("ErrorMensage", $this->getMessage(), 0, '/AntBack/AntApp/Validation/Exception/Assets');
-      setcookie("LogErrorMensage", $this, 0, '/AntBack/AntApp/Validation/Exception/Assets');
+      // $this->setLog();
+      setcookie("ErrorMensage", $this->getMessage(), 0, '/');
+      setcookie("LogErrorMensage", $this, 0, '/');
       header('Location:  /AntBack/AntApp/Validation/Exception/Assets/AntTalk.php');
     }
 

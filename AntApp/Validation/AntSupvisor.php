@@ -48,3 +48,8 @@
     }
 
   }
+
+  set_exception_handler(function ($Error) {
+    $Erro = new AntTalk(get_class($Error) . " finds: " . $Error->getMessage(), 0, $Error);
+    $Erro->showPage();
+  });
