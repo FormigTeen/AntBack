@@ -11,4 +11,8 @@
     public function isRead( string $location ) {
       return is_readable($location);
     }
+
+    public function FileIsOpen ( string $location ) {
+      return $this->isRead($location);
+    }
   }

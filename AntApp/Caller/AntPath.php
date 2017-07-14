@@ -2,4 +2,6 @@
 
 require_once( __DIR__ . '/AntSign.php');
 
-var_dump(AntConfig::Object()->Config);die;
+// Area para Debug
+
+var_dump(AntConfig::Object()->GetsignAnt());
