@@ -1,11 +1,9 @@
 <?php
 
-  namespace Validation\Exception\Extern;
+  namespace AntBack\Validation\Exception\Extern;
 
-  use Validation\Exception\Extern\IException as IException;
+  use AntBack\Validation\Exception\Extern\IException as IException;
   Use \Exception as Exception;
-
-  require_once ( __DIR__ . '/IException.php');
 
   abstract class CustomException extends Exception implements IException
   {

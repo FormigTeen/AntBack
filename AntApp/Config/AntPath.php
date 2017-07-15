@@ -1,3 +1,3 @@
 <?php
 
-  require_once( __DIR__ . '/AntPath.php');
+  require_once( __DIR__ . '/AntConfig.php');

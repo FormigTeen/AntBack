@@ -1,11 +1,11 @@
 <?php
 
-  namespace Config;
+  namespace AntBack\Config;
 
 
-  use Config\AntConfig as AntConfig;
-  use Validation\AntSupvisor as AntSupvisor;
-  use Validation\Exception\AntTalk as AntTalk;
+  use AntBack\Config\AntConfig as AntConfig;
+  use AntBack\Validation\AntSupvisor as AntSupvisor;
+  use AntBack\Validation\Exception\AntTalk as AntTalk;
 
   class AntConfig {
 
@@ -29,7 +29,7 @@
         if (!( AntSupvisor::File()->isRead(self::FILE) )) {
           throw new AntTalk("Leitura Negada ou Arquivo Inexistente!");
         }
-        $this->Config = parse_ini_file(self::File , true);
+        $this->Config = parse_ini_file(self::FILE , true);
       } catch ( AntTalk $Erro ) {
         $Erro->showPage();
       }

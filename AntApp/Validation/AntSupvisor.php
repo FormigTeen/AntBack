@@ -1,14 +1,14 @@
 <?php
 
 
-  namespace Validation;
+  namespace AntBack\Validation;
 
-  use Config\AntConfig as AntConfig;
-  use Validation\AntSupvisor as AntSupvisor;
-  use Validation\Exception\AntTalk as AntTalk;
+  use AntBack\Config\AntConfig as AntConfig;
+  use AntBack\Validation\AntSupvisor as AntSupvisor;
+  use AntBack\Validation\Exception\AntTalk as AntTalk;
 
-  use Validation\Type\File as File;
-  use Validation\Type\Str as Str;
+  use AntBack\Validation\Type\File as File;
+  use AntBack\Validation\Type\Str as Str;
 
   class AntSupvisor {
 
