@@ -7,7 +7,8 @@
 
   require_once ( __DIR__ . '/IException.php');
 
-  abstract class CustomException extends Exception implements IException {
+  abstract class CustomException extends Exception implements IException
+  {
 
     protected $message = 'Unknown exception';     // Exception message
     private   $string;                            // Unknown

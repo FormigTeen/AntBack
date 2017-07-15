@@ -13,38 +13,42 @@
   class AntConfig {
 
     //Diretorio Padrao da Configuração
-    const File = __DIR__ . '/.AntConfig.cfg';
+    const FILE = __DIR__ . '/.AntConfig.cfg';
 
     //Todos os Dados do Arquivo de Configuração
     public $Config;
 
-    final public function __construct() {
+    final public function __construct()
+    {
       //Carrega as Configurações
       $this->setConfiguration();
     }
 
     //Lê o Arquivo de Configuração do Ant e carrega no AntConfig
-    final private function  setConfiguration() {
+    final private function  setConfiguration()
+    {
 
       try {
-        if ( !( AntSupvisor::File()->isRead( self::File ) ) ) {
+        if (!( AntSupvisor::File()->isRead(self::FILE) )) {
           throw new AntTalk("Leitura Negada ou Arquivo Inexistente!");
         }
-        $this->Config = parse_ini_file( self::File , true);
+        $this->Config = parse_ini_file(self::File , true);
       } catch ( AntTalk $Erro ) {
         $Erro->showPage();
       }
     }
 
     //Cria um Objeto Anonimo para AntConfig
-     final public static function Object() {
+     final public static function Object()
+     {
        return new AntConfig();
      }
 
       //Listas de Funções que Trata a Resposta do Config individualmente
 
       //Responde solicitação sobre o signAnt
-      public function GetsignAnt() {
+      final public function GetsignAnt()
+      {
 
         if ( !isset($this->Config['Caller']['signAnt']) )
           $this->Config['Caller']['signAnt'] = true;
