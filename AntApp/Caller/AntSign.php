@@ -2,8 +2,8 @@
 
   //Lista dos Requires do Caller
 
-  require_once( __DIR__ . '/../Validation/AntSupvisor.php');
-  require_once( __DIR__ . '/../Config/AntConfig.php');
+  require_once( __DIR__ . '/../Validation/AntPath.php');
+  require_once( __DIR__ . '/../Config/AntPath.php');
 
   //Lista das Constantes USE para os Callers
 

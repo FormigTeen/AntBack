@@ -7,9 +7,6 @@
   use Validation\AntSupvisor as AntSupvisor;
   use Validation\Exception\AntTalk as AntTalk;
 
-  //Chama o Validador do Ant, caso seja necessario validar algo.
-  require_once( __DIR__ . '/../Validation/AntSupvisor.php');
-
   class AntConfig {
 
     //Diretorio Padrao da Configuração

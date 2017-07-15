@@ -8,9 +8,6 @@
   use Validation\Exception\AntTalk as AntTalk;
   Use \Exception as Exception;
 
-  require_once( __DIR__ . '/Extern/CustomException.php');
-  require_once( __DIR__ . '/Extern/IException.php');
-
   class AntTalk extends CustomException
   {
 
