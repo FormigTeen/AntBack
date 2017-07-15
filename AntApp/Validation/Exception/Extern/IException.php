@@ -2,7 +2,8 @@
 
   namespace Validation\Exception\Extern;
 
-  interface IException {
+  interface IException
+  {
     /* Protected methods inherited from Exception class */
     public function getMessage();                 // Exception message
     public function getCode();                    // User-defined Exception code
