@@ -2,7 +2,7 @@ RewriteEngine On
 RewriteBase /AntBack/AntApp
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ AntRouter.php?uri=$1 [QSA,L]
+RewriteRule ^(.+)$ AntRouter.php?URI=$1 [QSA,L]
 
 DirectoryIndex AntRouter.php
 
