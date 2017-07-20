@@ -8,5 +8,7 @@
   //include_once( __DIR__ . '/../MyRouter.php');
 
   //Recebe a Rota
-  $array = explode('/', $_GET['URI']);
-  var_dump($array);die;
+  unset($ROUTE);
+  $ROUTE[] = strtoupper($_SERVER['REQUEST_METHOD']);
+  $ROUTE[] = explode('/', strtoupper($_GET['URI']));
+  var_dump($ROUTE);die;
