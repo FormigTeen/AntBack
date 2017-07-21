@@ -7,9 +7,9 @@
 
   //Lista das Constantes USE para os Callers
 
-  use Validation\Exception\AntTalk as AntTalkSign;
-  use Validation\AntSupvisor as AntSupvisorSign;
-  use Config\AntConfig as AntConfigSign;
+  use AntBack\Validation\Exception\AntTalk as AntTalkSign;
+  use AntBack\Validation\AntSupvisor as AntSupvisorSign;
+  use AntBack\Config\AntConfig as AntConfigSign;
 
 
   //Lista das Assinaturas dos Callers

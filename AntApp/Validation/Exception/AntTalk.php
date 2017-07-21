@@ -1,11 +1,11 @@
 <?php
 
-  namespace Validation\Exception;
+  namespace AntBack\Validation\Exception;
 //Code by Wiki Users PHP
 
-  use Validation\Exception\Extern\IException as IException;
-  use Validation\Exception\Extern\CustomException as CustomException;
-  use Validation\Exception\AntTalk as AntTalk;
+  use AntBack\Validation\Exception\Extern\IException as IException;
+  use AntBack\Validation\Exception\Extern\CustomException as CustomException;
+  use AntBack\Validation\Exception\AntTalk as AntTalk;
   Use \Exception as Exception;
 
   class AntTalk extends CustomException

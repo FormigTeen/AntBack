@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /AntBack/AntApp
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ AntRouter.php?URI=$1 [QSA,L]
+
+DirectoryIndex AntRouter.php
+
+ErrorDocument 401 /AntBack/AntApp/Validation/Exception/Log/Apache.php?Message=401!+Falha+na+Autorização!
+ErrorDocument 403 /AntBack/AntApp/Validation/Exception/Log/Apache.php?Message=403!+Acesso+Negado!
+ErrorDocument 404 /AntBack/AntApp/Validation/Exception/Log/Apache.php?Message=404!+Arquivo+Não+Encontrado!
+ErrorDocument 500 /AntBack/AntApp/Validation/Exception/Log/Apache.php?Message=500!+Erro+Interno!

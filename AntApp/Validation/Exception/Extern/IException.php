@@ -1,6 +1,6 @@
 <?php
 
-  namespace Validation\Exception\Extern;
+  namespace AntBack\Validation\Exception\Extern;
 
   interface IException
   {

@@ -1,6 +1,6 @@
 <?php
 
-  namespace Validation\Type;
+  namespace AntBack\Validation\Type;
 
   final class File
   {
