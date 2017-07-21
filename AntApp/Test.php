@@ -1,5 +1,8 @@
 <html>
   <body>
-    <a href="user/5">Clique Aqui!</a>
+    <form action="/AntBack/AntApp/AntRouter.php" method="put" >
+      <input name="_method" type="hidden" value="delete" />
+      <input type="submit" value="delete" />
+    </form>
   </body>
 </html>
