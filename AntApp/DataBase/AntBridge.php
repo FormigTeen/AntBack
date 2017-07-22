@@ -4,24 +4,20 @@
 
   use DataBase\AntBridge as AntBridge;
 
-  //Chama todos os Modulos necessarios do Ant
-  require_once ( __DIR__ . '/../Validation/AntSupvisor.php');
-  require_once ( __DIR__ . '/../Config/AntConfig.php');
-
-  //Conecta o todos os Módulos Secundarios de AntBridge
-  require_once( __DIR__ . '/Extern/Connection.php');
-
   class AntBridge
   {
 
+    const AVAILABLE = ["DataBase" => ["MYSQL"]];
+    private $Base;
     private $Table;
     private $Action;
     private $Stack[];
     private $Condition[];
 
     //Decide qual é o Banco de Dados que deverá ser utilizado
-    final public function setBridge()
+    final public function setBridge($Base)
     {
+      if ( )
     }
 
     //Informa qual é a Tablea que será utilizada para construir a Query
