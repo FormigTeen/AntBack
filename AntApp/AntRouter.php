@@ -13,4 +13,6 @@
   //$ROUTE[] = explode('/', strtoupper($_GET['URI']));
   //var_dump($ROUTE);die;
   //var_dump($_POST);die;
+  //var_dump($_GET);die;
   var_dump($_SERVER['REQUEST_METHOD']);die;
+  //var_dump("Ola");die;
