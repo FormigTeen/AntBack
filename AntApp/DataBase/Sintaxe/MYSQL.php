@@ -7,7 +7,7 @@
   class MYSQL
   {
 
-    const AVAILABLE = ["Action" => ["UPDATE", "SELECT", "DELETE", "INSERT"]];
+    const AVAILABLE = ["Action" => ["UPDATE", "SELECT", "DELETE", "INSERT"] ];
     private $Query; //Query final criado pelo Objeto
     private $Table; //Tabela onde ocorrerá a modificação, caso seja um Select pode ser um Array de tabelas
     private $Field; //Campos da Tabela que serão utilizados no Insert e no Update
@@ -15,6 +15,13 @@
     private $NumStack; //Numero de Intes que serão Inseridos, Atualizados, Criados e Deletados.
     private $Condition; //Condições adicionais para o Select
 
+    final public function execute( array $input ) {
+      $Action = self::validateAction($input["Action"]);
+      $Action = ucfirst(strtolower($Action));
+      self::validateCall($Action, $input);
+    }
+
+    //Cria a Query de Insert
     final public function Insert()
     {
       $this->InsertLevelOne();
@@ -32,6 +39,7 @@
       $this->Query .= implode(', ', array_fill(0, $this->NumStack, $rowPlaces));
     }
 
+    //Cria a Query de Select
     final public function Select()
     {
       $this->SelectLevelOne();
@@ -63,6 +71,7 @@
       return "SELECT " . implode(", ", $map);
     }
 
+    //Cria a Query de Update
     final private function Update()
     {
       $this->UpdateLevelOne();
@@ -80,6 +89,7 @@
       $this->Query .= " ON DUPLICATE KEY UPDATE " . implode(", ", $map);
     }
 
+    //Cria a Query de Delete
     final private function Delete()
     {
       $this->DeleteLevelOne();
@@ -97,4 +107,24 @@
       $this->Query .= $this->Condition ?? ' ';
     }
 
+    //Valida se a Action passada pelo AntBride é Válida
+    final private static function validateAction( string $Action )
+    {
+      try {
+        $Action = strtoupper($Action);
+        if ( in_array( $Action, self::AVAILABLE["Action"]) ) {
+          return $Action;
+        } else {
+          throw new AntTalk("Ação {$Action} não implementada na Sintaxe MySQL do AntBack!");
+        }
+      } catch ( AntTalk $Erro ) {
+        $Erro->showPage();
+      }
+    }
+
+    //Valida se tem os Dados necessários para fazer a Chamada da Query
+    final private static function validateCall ( )
+    {
+
+    }
   }

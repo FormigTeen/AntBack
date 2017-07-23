@@ -11,10 +11,13 @@
 
     const AVAILABLE = ["DataBase" => ["MYSQL"]]; //Lista de Banco de Dados já implementados na Sintaxe de Ant
     public $Base;
-    private $Table;
-    private $Action;
-    private $Stack;
-    private $Condition;
+    private $Query; //Query final criado pelo Objeto
+    private $Table; //Tabela onde ocorrerá a modificação, caso seja um Select pode ser um Array de tabelas
+    private $Field; //Campos da Tabela que serão utilizados no Insert e no Update
+    private $FieldUpdate; //Campos onde o Update e o Delete utilizará o Where
+    private $NumStack; //Numero de Intes que serão Inseridos, Atualizados, Criados e Deletados.
+    private $Condition; //Condições adicionais para o Select
+    private $Action; //Informa qual a Ação que deve ser Realizada;
 
     final public function __construct()
     {
@@ -43,4 +46,9 @@
       $this->Table = $Table;
     }
 
+    final public function execute()
+    {
+      return $Base->execute(["Field" = > $this->Field, "FieldUpdate" => $this->FieldUpdate, "NumStack" => $this->NumStack,
+                             "Condition" => $this->Condition, "Action" => $this->Action]);
+    }
   }
