@@ -60,4 +60,17 @@
           $Erro->showPage();
         }
       }
+
+      //Respode solicatação sobre o typeDataBase
+      final public function GettypeDatabase()
+      {
+
+        try {
+          if ( !is_string($this->Config['DataBase']['typeDatabase']) )
+            throw new AntTalk("Configuração 'typeDatabase' incorreta. Consulte o Arquivo de Configuração!");
+          return $this->Config['DataBase']['typeDatabase'];
+        } catch ( AntTalk $Erro ) {
+          $Erro->showPage();
+        }
+      }
   }

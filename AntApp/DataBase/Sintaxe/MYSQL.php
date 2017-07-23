@@ -2,7 +2,7 @@
 
   namespace DataBase\Sintaxe;
 
-  use DataBASE\Sintaxe\MYSQL as MySQL;
+  use DataBase\Sintaxe\MYSQL as MYSQL;
 
   class MYSQL
   {
@@ -14,15 +14,6 @@
     private $FieldUpdate; //Campos onde o Update e o Delete utilizará o Where
     private $NumStack; //Numero de Intes que serão Inseridos, Atualizados, Criados e Deletados.
     private $Condition; //Condições adicionais para o Select
-
-    final public function __construct(array $Attributes )
-    {
-      foreach($Attributes as $key => $value )
-        $this->$key = $value;
-
-      $this->Delete(); //DEBUG
-      var_dump($this->Query);die;
-    }
 
     final public function Insert()
     {
